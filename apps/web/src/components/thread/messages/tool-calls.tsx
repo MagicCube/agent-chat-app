@@ -161,7 +161,9 @@ export function ToolResult({ message }: { message: ToolMessage }) {
                   </tbody>
                 </table>
               ) : (
-                <code className="text-sm block">{displayedContent}</code>
+                <code className="text-sm block whitespace-pre">
+                  {displayedContent}
+                </code>
               )}
             </motion.div>
           </AnimatePresence>
