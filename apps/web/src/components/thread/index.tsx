@@ -36,6 +36,8 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 
+import { metadata } from "@/metadata";
+
 function StickyToBottomContent(props: {
   content: ReactNode;
   footer?: ReactNode;
@@ -301,7 +303,7 @@ export function Thread() {
               >
                 <LangGraphLogoSVG width={32} height={32} />
                 <span className="text-xl font-semibold tracking-tight">
-                  Agent Chat
+                  {metadata.title?.toString()}
                 </span>
               </motion.button>
             </div>
@@ -374,7 +376,7 @@ export function Thread() {
                   <div className="flex gap-3 items-center">
                     <LangGraphLogoSVG className="flex-shrink-0 h-8" />
                     <h1 className="text-2xl font-semibold tracking-tight">
-                      Agent Chat
+                      {metadata.title?.toString()}
                     </h1>
                   </div>
                 )}

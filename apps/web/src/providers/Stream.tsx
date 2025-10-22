@@ -13,6 +13,8 @@ import {
   type RemoveUIMessage,
 } from "@langchain/langgraph-sdk/react-ui";
 import { useQueryState } from "nuqs";
+import { toast } from "sonner";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { LangGraphLogoSVG } from "@/components/icons/langgraph";
@@ -21,7 +23,7 @@ import { ArrowRight } from "lucide-react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { getApiKey } from "@/lib/api-key";
 import { useThreads } from "./Thread";
-import { toast } from "sonner";
+import { metadata } from "@/metadata";
 
 export type StateType = { messages: Message[]; ui?: UIMessage[] };
 
@@ -166,12 +168,13 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
             <div className="flex items-start flex-col gap-2">
               <LangGraphLogoSVG className="h-7" />
               <h1 className="text-xl font-semibold tracking-tight">
-                Agent Chat
+                {metadata.title?.toString()}
               </h1>
             </div>
             <p className="text-muted-foreground">
-              Welcome to Agent Chat! Before you get started, you need to enter
-              the URL of the deployment and the assistant / graph ID.
+              Welcome to {metadata.title?.toString()}! Before you get started,
+              you need to enter the URL of the deployment and the assistant /
+              graph ID.
             </p>
           </div>
           <form

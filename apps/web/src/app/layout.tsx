@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import React from "react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { metadata as METADATA } from "@/metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,10 +12,7 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Agent Inbox",
-  description: "Agent Inbox UX by LangChain",
-};
+export const metadata = METADATA;
 
 export default function RootLayout({
   children,
