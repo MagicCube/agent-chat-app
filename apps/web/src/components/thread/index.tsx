@@ -208,7 +208,7 @@ export function Thread() {
     <div className="flex w-full h-screen overflow-hidden">
       <div className="relative lg:flex hidden">
         <motion.div
-          className="absolute h-full border-r bg-white overflow-hidden z-20"
+          className="absolute h-full border-r overflow-hidden z-20"
           style={{ width: 300 }}
           animate={
             isLargeScreen
@@ -369,7 +369,7 @@ export function Thread() {
               </>
             }
             footer={
-              <div className="sticky flex flex-col items-center gap-8 bottom-0 bg-white">
+              <div className="sticky flex flex-col items-center gap-8 bottom-0">
                 {!chatStarted && (
                   <div className="flex gap-3 items-center">
                     <LangGraphLogoSVG className="flex-shrink-0 h-8" />

@@ -24,11 +24,11 @@ export function ToolCalls({
             key={idx}
             className="border border-gray-200 rounded-lg overflow-hidden"
           >
-            <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
-              <h3 className="font-medium text-gray-900">
+            <div className="px-4 py-2 border-b border-gray-200">
+              <h3 className="font-medium">
                 {tc.name}
                 {tc.id && (
-                  <code className="ml-2 text-sm bg-gray-100 px-2 py-1 rounded">
+                  <code className="ml-2 text-sm px-2 py-1 rounded whitespace-pre">
                     {tc.id}
                   </code>
                 )}
@@ -39,12 +39,12 @@ export function ToolCalls({
                 <tbody className="divide-y divide-gray-200">
                   {Object.entries(args).map(([key, value], argIdx) => (
                     <tr key={argIdx}>
-                      <td className="px-4 py-2 text-sm font-medium text-gray-900 whitespace-nowrap">
+                      <td className="px-4 py-2 text-sm font-medium whitespace-nowrap">
                         {key}
                       </td>
-                      <td className="px-4 py-2 text-sm text-gray-500">
+                      <td className="px-4 py-2 text-sm text-gray-500 whitespace-pre">
                         {isComplexValue(value) ? (
-                          <code className="bg-gray-50 rounded px-2 py-1 font-mono text-sm break-all">
+                          <code className="rounded px-2 py-1 font-mono text-sm break-all whitespace-pre">
                             {JSON.stringify(value, null, 2)}
                           </code>
                         ) : (
@@ -95,27 +95,25 @@ export function ToolResult({ message }: { message: ToolMessage }) {
 
   return (
     <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
+      <div className="px-4 py-2 border-b border-gray-200">
         <div className="flex items-center justify-between gap-2 flex-wrap">
           {message.name ? (
-            <h3 className="font-medium text-gray-900">
+            <h3 className="font-medium">
               Tool Result:{" "}
-              <code className="bg-gray-100 px-2 py-1 rounded">
-                {message.name}
-              </code>
+              <code className="px-2 py-1 rounded">{message.name}</code>
             </h3>
           ) : (
-            <h3 className="font-medium text-gray-900">Tool Result</h3>
+            <h3 className="font-medium">Tool Result</h3>
           )}
           {message.tool_call_id && (
-            <code className="ml-2 text-sm bg-gray-100 px-2 py-1 rounded">
+            <code className="ml-2 text-sm px-2 py-1 rounded">
               {message.tool_call_id}
             </code>
           )}
         </div>
       </div>
       <motion.div
-        className="min-w-full bg-gray-100"
+        className="min-w-full"
         initial={false}
         animate={{ height: "auto" }}
         transition={{ duration: 0.3 }}
@@ -143,12 +141,12 @@ export function ToolResult({ message }: { message: ToolMessage }) {
                         : [item[0], item[1]];
                       return (
                         <tr key={argIdx}>
-                          <td className="px-4 py-2 text-sm font-medium text-gray-900 whitespace-nowrap">
+                          <td className="px-4 py-2 text-sm font-medium whitespace-nowrap">
                             {key}
                           </td>
-                          <td className="px-4 py-2 text-sm text-gray-500">
+                          <td className="px-4 py-2 text-sm">
                             {isComplexValue(value) ? (
-                              <code className="bg-gray-50 rounded px-2 py-1 font-mono text-sm break-all">
+                              <code className="rounded px-2 py-1 font-mono text-sm break-all">
                                 {JSON.stringify(value, null, 2)}
                               </code>
                             ) : (
